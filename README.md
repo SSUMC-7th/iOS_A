@@ -13,7 +13,7 @@ SSUMC 7기 iOS 스터디 A조
 
 ```zsh
 ├─main
-    ├─main/jc
+    ├─jc/main
     │  └─jc/week1
     │  └─jc/week2
 ```
