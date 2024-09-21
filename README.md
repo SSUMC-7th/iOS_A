@@ -1,13 +1,13 @@
 # iOS A
 
-SSUMC 7기 iOS 스터디 A조
+SSUMC 7기 iOS 스터디 A조 - 서울여대 연합스터디 진행
 
 ## Member
 
-| 황상환 | 한태빈 | 이준혁 | 소민준 | 한금준 |
-| :---------:|:----------:|:----------:|:----------:|:----------:|
-| 에그 | 빈빈 | 체크 | 쏘쏘 | 누비 |
-| [Hrepay](https://github.com/Hrepay) | [taebin2](https://github.com/taebin2) | [dlwnsgurz](https://github.com/dlwnsgurz) | [somongi](https://github.com/somongi) | [gksrmawns0925](https://github.com/gksrmawns0925) |
+| 한태빈 | 소민준 |
+|:----------:|:----------:|
+| 빈빈 | 쏘쏘 |
+| [taebin2](https://github.com/taebin2) | [somongi](https://github.com/somongi) |
 
 ## branch 컨벤션 (규칙)
 
