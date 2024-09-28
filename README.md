@@ -7,7 +7,7 @@ SSUMC 7기 iOS 스터디 A조 - 서울여대 연합스터디 진행
 | 한태빈 | 소민준 | 임효진(서울여대) | 임소은(서울여대) |
 |:----------:|:----------:|:----------:|:----------:|
 | 해태 | 쏘쏘 | 비모 | 쏘니 |
-| [HaeTae](https://github.com/taebin2) | [somongi](https://github.com/somongi) | [hyojin425](https://github.com/hyojin425) | [soeun11](https://github.com/soeun11) |
+| [HaeTae](https://github.com/taebin2) | [sososominjun](https://github.com/sososominjun) | [hyojin425](https://github.com/hyojin425) | [soeun11](https://github.com/soeun11) |
 
 ## branch 컨벤션 (규칙)
 
