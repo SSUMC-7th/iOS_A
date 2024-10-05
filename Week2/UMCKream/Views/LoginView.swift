@@ -108,7 +108,7 @@ class LoginView: UIView {
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-    }()
+    }() // button 괜찮나?
     // UI 요소들을 뷰에 추가하는 메서드
     private func addComponents() {
         self.addSubview(logoImageView)
