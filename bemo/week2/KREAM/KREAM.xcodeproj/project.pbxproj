@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0110DC782CA7E9C200D6BF36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110DC772CA7E9C200D6BF36 /* AppDelegate.swift */; };
+		0110DC7A2CA7E9C200D6BF36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110DC792CA7E9C200D6BF36 /* SceneDelegate.swift */; };
+		0110DC7C2CA7E9C200D6BF36 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110DC7B2CA7E9C200D6BF36 /* LoginViewController.swift */; };
+		0110DC812CA7E9C400D6BF36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0110DC802CA7E9C400D6BF36 /* Assets.xcassets */; };
+		0110DC8D2CA8074600D6BF36 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110DC8C2CA8074600D6BF36 /* LoginModel.swift */; };
+		0110DC902CA8076800D6BF36 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0110DC8F2CA8076800D6BF36 /* LoginView.swift */; };
+		016B80BC2CB1BA200088BEB5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B80BB2CB1BA200088BEB5 /* MainViewController.swift */; };
+		016B80BE2CB1BA4C0088BEB5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B80BD2CB1BA4C0088BEB5 /* HomeViewController.swift */; };
+		016B80C02CB1BA570088BEB5 /* StyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B80BF2CB1BA570088BEB5 /* StyleViewController.swift */; };
+		016B80C22CB1BA640088BEB5 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B80C12CB1BA640088BEB5 /* ShopViewController.swift */; };
+		016B80C42CB1BA6E0088BEB5 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B80C32CB1BA6E0088BEB5 /* SavedViewController.swift */; };
+		016B80C62CB1BA770088BEB5 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B80C52CB1BA770088BEB5 /* MyViewController.swift */; };
+		016B80C82CB1BF450088BEB5 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B80C72CB1BF450088BEB5 /* MyView.swift */; };
+		016B80CB2CB1C1460088BEB5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 016B80CA2CB1C1460088BEB5 /* SnapKit */; };
+		016B80CD2CB1C1460088BEB5 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 016B80CC2CB1C1460088BEB5 /* SnapKit-Dynamic */; };
+		016B80CF2CB1CA5B0088BEB5 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B80CE2CB1CA5B0088BEB5 /* ProfileEditView.swift */; };
+		016B80D12CB1CACE0088BEB5 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016B80D02CB1CACE0088BEB5 /* ProfileEditViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0110DC742CA7E9C200D6BF36 /* KREAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KREAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0110DC772CA7E9C200D6BF36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0110DC792CA7E9C200D6BF36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0110DC7B2CA7E9C200D6BF36 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0110DC802CA7E9C400D6BF36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0110DC852CA7E9C400D6BF36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0110DC8C2CA8074600D6BF36 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		0110DC8F2CA8076800D6BF36 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		016B80BB2CB1BA200088BEB5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		016B80BD2CB1BA4C0088BEB5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		016B80BF2CB1BA570088BEB5 /* StyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleViewController.swift; sourceTree = "<group>"; };
+		016B80C12CB1BA640088BEB5 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		016B80C32CB1BA6E0088BEB5 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
+		016B80C52CB1BA770088BEB5 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		016B80C72CB1BF450088BEB5 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
+		016B80CE2CB1CA5B0088BEB5 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
+		016B80D02CB1CACE0088BEB5 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileEditViewController.swift; path = KREAM/Assets.xcassets/ProfileEditViewController.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0110DC712CA7E9C200D6BF36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				016B80CB2CB1C1460088BEB5 /* SnapKit in Frameworks */,
+				016B80CD2CB1C1460088BEB5 /* SnapKit-Dynamic in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0110DC6B2CA7E9C200D6BF36 = {
+			isa = PBXGroup;
+			children = (
+				0110DC762CA7E9C200D6BF36 /* KREAM */,
+				0110DC752CA7E9C200D6BF36 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0110DC752CA7E9C200D6BF36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0110DC742CA7E9C200D6BF36 /* KREAM.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0110DC762CA7E9C200D6BF36 /* KREAM */ = {
+			isa = PBXGroup;
+			children = (
+				0110DC912CA8076C00D6BF36 /* ViewControllers */,
+				0110DC8E2CA8075500D6BF36 /* Views */,
+				0110DC8B2CA8072C00D6BF36 /* Models */,
+				0110DC772CA7E9C200D6BF36 /* AppDelegate.swift */,
+				0110DC792CA7E9C200D6BF36 /* SceneDelegate.swift */,
+				0110DC802CA7E9C400D6BF36 /* Assets.xcassets */,
+				0110DC852CA7E9C400D6BF36 /* Info.plist */,
+			);
+			path = KREAM;
+			sourceTree = "<group>";
+		};
+		0110DC8B2CA8072C00D6BF36 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0110DC8C2CA8074600D6BF36 /* LoginModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0110DC8E2CA8075500D6BF36 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0110DC8F2CA8076800D6BF36 /* LoginView.swift */,
+				016B80C72CB1BF450088BEB5 /* MyView.swift */,
+				016B80CE2CB1CA5B0088BEB5 /* ProfileEditView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0110DC912CA8076C00D6BF36 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0110DC7B2CA7E9C200D6BF36 /* LoginViewController.swift */,
+				016B80BB2CB1BA200088BEB5 /* MainViewController.swift */,
+				016B80BD2CB1BA4C0088BEB5 /* HomeViewController.swift */,
+				016B80BF2CB1BA570088BEB5 /* StyleViewController.swift */,
+				016B80C12CB1BA640088BEB5 /* ShopViewController.swift */,
+				016B80C32CB1BA6E0088BEB5 /* SavedViewController.swift */,
+				016B80C52CB1BA770088BEB5 /* MyViewController.swift */,
+				016B80D02CB1CACE0088BEB5 /* ProfileEditViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0110DC732CA7E9C200D6BF36 /* KREAM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0110DC882CA7E9C400D6BF36 /* Build configuration list for PBXNativeTarget "KREAM" */;
+			buildPhases = (
+				0110DC702CA7E9C200D6BF36 /* Sources */,
+				0110DC712CA7E9C200D6BF36 /* Frameworks */,
+				0110DC722CA7E9C200D6BF36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KREAM;
+			packageProductDependencies = (
+				016B80CA2CB1C1460088BEB5 /* SnapKit */,
+				016B80CC2CB1C1460088BEB5 /* SnapKit-Dynamic */,
+			);
+			productName = KREAM;
+			productReference = 0110DC742CA7E9C200D6BF36 /* KREAM.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0110DC6C2CA7E9C200D6BF36 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					0110DC732CA7E9C200D6BF36 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 0110DC6F2CA7E9C200D6BF36 /* Build configuration list for PBXProject "KREAM" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0110DC6B2CA7E9C200D6BF36;
+			packageReferences = (
+				016B80C92CB1C1460088BEB5 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
+			productRefGroup = 0110DC752CA7E9C200D6BF36 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0110DC732CA7E9C200D6BF36 /* KREAM */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0110DC722CA7E9C200D6BF36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0110DC812CA7E9C400D6BF36 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0110DC702CA7E9C200D6BF36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				016B80C82CB1BF450088BEB5 /* MyView.swift in Sources */,
+				0110DC7C2CA7E9C200D6BF36 /* LoginViewController.swift in Sources */,
+				0110DC8D2CA8074600D6BF36 /* LoginModel.swift in Sources */,
+				016B80C22CB1BA640088BEB5 /* ShopViewController.swift in Sources */,
+				0110DC782CA7E9C200D6BF36 /* AppDelegate.swift in Sources */,
+				016B80BC2CB1BA200088BEB5 /* MainViewController.swift in Sources */,
+				016B80C02CB1BA570088BEB5 /* StyleViewController.swift in Sources */,
+				016B80C62CB1BA770088BEB5 /* MyViewController.swift in Sources */,
+				016B80D12CB1CACE0088BEB5 /* ProfileEditViewController.swift in Sources */,
+				016B80CF2CB1CA5B0088BEB5 /* ProfileEditView.swift in Sources */,
+				0110DC902CA8076800D6BF36 /* LoginView.swift in Sources */,
+				016B80BE2CB1BA4C0088BEB5 /* HomeViewController.swift in Sources */,
+				016B80C42CB1BA6E0088BEB5 /* SavedViewController.swift in Sources */,
+				0110DC7A2CA7E9C200D6BF36 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0110DC862CA7E9C400D6BF36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0110DC872CA7E9C400D6BF36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0110DC892CA7E9C400D6BF36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4A47BUDSR5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KREAM/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.KREAM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0110DC8A2CA7E9C400D6BF36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4A47BUDSR5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KREAM/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.KREAM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0110DC6F2CA7E9C200D6BF36 /* Build configuration list for PBXProject "KREAM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0110DC862CA7E9C400D6BF36 /* Debug */,
+				0110DC872CA7E9C400D6BF36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0110DC882CA7E9C400D6BF36 /* Build configuration list for PBXNativeTarget "KREAM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0110DC892CA7E9C400D6BF36 /* Debug */,
+				0110DC8A2CA7E9C400D6BF36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		016B80C92CB1C1460088BEB5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		016B80CA2CB1C1460088BEB5 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 016B80C92CB1C1460088BEB5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		016B80CC2CB1C1460088BEB5 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 016B80C92CB1C1460088BEB5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 0110DC6C2CA7E9C200D6BF36 /* Project object */;
+}
