@@ -31,7 +31,7 @@ class LoginView: UIView {
     }()
     
     // 이메일 라벨
-    private let emailLabel: UILabel = {
+        let emailLabel: UILabel = {
         let label = UILabel()
         label.text = "이메일 주소"
         label.font = UIFont(name: "Inter", size: 12)
@@ -41,7 +41,7 @@ class LoginView: UIView {
     }()
     
     // 이메일 텍스트 필드
-    private let emailTextField: UITextField = {
+        let emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "예) example@example.com"
         textField.borderStyle = .roundedRect
@@ -64,7 +64,7 @@ class LoginView: UIView {
     }()
     
     // 비밀번호 텍스트 필드
-    private let passwordTextField: UITextField = {
+        let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "비밀번호를 입력해주세요"
         textField.borderStyle = .roundedRect

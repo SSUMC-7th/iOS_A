@@ -21,7 +21,7 @@ class ProfileChangeViewController: UIViewController {
         // 프로필 이미지
         private let profileImageView: UIImageView = {
             let imageView = UIImageView()
-            imageView.image = UIImage(named: "profile_placeholder")
+            imageView.image = UIImage(named: "somong")
             imageView.layer.cornerRadius = 50
             imageView.clipsToBounds = true
             return imageView
