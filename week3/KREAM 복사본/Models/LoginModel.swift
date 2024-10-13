@@ -9,7 +9,7 @@ struct LoginModel {
         self.pwd = pwd
     }
     
-    /// UserDefaults에 저장
+    // UserDefaults로 아이디 비번 저장
     public func saveToUserDefaults() {
         UserDefaults.standard.set(id, forKey: "userId")
         UserDefaults.standard.set(pwd, forKey: "userPwd")
