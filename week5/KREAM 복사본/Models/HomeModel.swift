@@ -10,7 +10,7 @@ struct HomeModel{
 }
 
 extension HomeModel{
-    static func dummy() ->[HomeModel]{
+    static func Makedummy() ->[HomeModel]{
         return[
             HomeModel(image: .mainDraw, name: "크림 드로우"),
             HomeModel(image: .mainChart, name: "실시간 차트"),

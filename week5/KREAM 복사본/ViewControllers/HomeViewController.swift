@@ -1,8 +1,4 @@
-//  Created by 한태빈 on 10/14/24.
-//
 import UIKit
-import SnapKit
-import Then
 
 class HomeViewController: UIViewController, UICollectionViewDelegate {
     private let rootView = Homeview()
@@ -10,12 +6,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         view = rootView
-        
         setupAction()
         setupDelegate()
     }
+    
     private func setupAction() {
         rootView.segmentedControl.addTarget(
             self,
@@ -24,41 +19,72 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         )
     }
     
-    private func setupDelegate(){
+    private func setupDelegate() {
         rootView.HomeCollectionView.dataSource = self
         rootView.HomeCollectionView.delegate = self
+        rootView.JustDroppedCollectionView.dataSource = self
+        rootView.JustDroppedCollectionView.delegate = self
     }
     
     @objc
     private func segmentedControlValueChanged(segment: UISegmentedControl) {
         if segment.selectedSegmentIndex == 0 {
             rootView.HomeCollectionView.isHidden = false
+            rootView.JustDroppedCollectionView.isHidden = false
             rootView.emptyLabel.isHidden = true
-        }
-        else {
+        } else {
             rootView.HomeCollectionView.isHidden = true
+            rootView.JustDroppedCollectionView.isHidden = true
             rootView.emptyLabel.isHidden = false
         }
     }
 }
-extension HomeViewController: UICollectionViewDataSource{
+
+extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return HomeModel.dummy().count
+        // 각 컬렉션 뷰에 맞는 데이터 개수를 반환합니다.
+        if collectionView == rootView.HomeCollectionView {
+            return HomeModel.Makedummy().count
+        } else if collectionView == rootView.JustDroppedCollectionView {
+            return JustDroppedModel.MakeDummy2().count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
+        // 각 컬렉션 뷰에 맞는 셀과 데이터를 설정합니다.
+        if collectionView == rootView.HomeCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: HomeCollectionViewCell.identifier,
                     for: indexPath
                 ) as? HomeCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-        let list = HomeModel.dummy()
-        
-        cell.imageView.image = list[indexPath.row].image
-        cell.titleLabel.text = list[indexPath.row].name
-        return cell
+            let list = HomeModel.Makedummy()
+            cell.imageView.image = list[indexPath.row].image
+            cell.titleLabel.text = list[indexPath.row].name
+            return cell
+            
+        } else if collectionView == rootView.JustDroppedCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: JustDroppedCollectionViewCell.identifier,
+                    for: indexPath
+                ) as? JustDroppedCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+            let list = JustDroppedModel.MakeDummy2()
+            cell.imageView.image = list[indexPath.row].image
+            cell.titleLabel.text = list[indexPath.row].transactionCount
+            cell.brandLabel.text = list[indexPath.row].brandName
+            cell.productLabel.text = list[indexPath.row].productName
+            cell.priceLabel.text = list[indexPath.row].price
+            cell.nowBuyingLabel.text = list[indexPath.row].buyNowLabel
+            cell.saveButton.setImage(
+                UIImage(systemName: list[indexPath.row].isBookmarked ? "bookmark.fill" : "bookmark"),
+                for: .normal
+            )
+            return cell
+        }
+        return UICollectionViewCell()
     }
-    
-    
 }
