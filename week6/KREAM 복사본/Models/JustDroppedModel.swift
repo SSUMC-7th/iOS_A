@@ -35,11 +35,11 @@ extension JustDroppedModel {
             ),
             
             JustDroppedModel(
-                image:.justDropped3,
+                image:.matinkimblack,
                 transactionCount: "거래 12.8만",
-                brandName: "Human Made",
-                productName: "Human Made x Kaws\nVarsity Jacket #1 Black",
-                price: "2,000,000원",
+                brandName: "Matin Kim",
+                productName: "Matin Kim Logo Coating Jumper",
+                price: "228,000원",
                 buyNowLabel: "즉시 구매가",
                 isBookmarked: false
             )

@@ -42,7 +42,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // 각 컬렉션 뷰에 맞는 데이터 개수를 반환합니다.
         if collectionView == rootView.HomeCollectionView {
             return HomeModel.Makedummy().count
         } else if collectionView == rootView.JustDroppedCollectionView {
@@ -52,7 +51,6 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // 각 컬렉션 뷰에 맞는 셀과 데이터를 설정합니다.
         if collectionView == rootView.HomeCollectionView {
             guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: HomeCollectionViewCell.identifier,
@@ -86,5 +84,18 @@ extension HomeViewController: UICollectionViewDataSource {
             return cell
         }
         return UICollectionViewCell()
+    }
+}
+
+
+extension HomeViewController {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // JustDroppedCollectionView에서 셀이 클릭되었는지 확인
+        if collectionView == rootView.JustDroppedCollectionView {
+            // ProductViewController로 이동
+            let productViewController = ProductViewController()
+            
+            navigationController?.pushViewController(productViewController, animated: true)
+        }
     }
 }

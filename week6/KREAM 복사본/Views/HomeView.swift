@@ -81,10 +81,10 @@ class Homeview: UIView {
     let JustDroppedCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
         $0.estimatedItemSize = CGSize(width: 142, height: 237)
         $0.minimumInteritemSpacing = 8
-        $0.sectionInset = .zero
+        $0.scrollDirection = .horizontal
     }).then {
         $0.backgroundColor = .clear
-        $0.isScrollEnabled = false
+        $0.isScrollEnabled = true
         $0.register(JustDroppedCollectionViewCell.self, forCellWithReuseIdentifier: JustDroppedCollectionViewCell.identifier)
     }
 
