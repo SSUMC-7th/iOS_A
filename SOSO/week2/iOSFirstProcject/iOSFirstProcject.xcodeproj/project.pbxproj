@@ -24,6 +24,9 @@
 		48710C1B2CB1B49200BBA753 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48710C1A2CB1B49200BBA753 /* SavedViewController.swift */; };
 		48710C232CB1D48100BBA753 /* ProfileChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48710C222CB1D48100BBA753 /* ProfileChangeViewController.swift */; };
 		48710C2B2CB1DEAE00BBA753 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48710C2A2CB1DEAE00BBA753 /* MyPageViewController.swift */; };
+		48899E232CDE8ABA00D06322 /* JustDroppedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48899E222CDE8ABA00D06322 /* JustDroppedModel.swift */; };
+		48899E252CDE8DDE00D06322 /* JustDroppedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48899E242CDE8DDE00D06322 /* JustDroppedCollectionViewCell.swift */; };
+		48899E272CDEC87D00D06322 /* justDroppedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48899E262CDEC87D00D06322 /* justDroppedCollectionView.swift */; };
 		488EB9F72CBA8E27006C207A /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488EB9F62CBA8E27006C207A /* MyPageView.swift */; };
 		488EB9F92CBA8E58006C207A /* MyPageTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488EB9F82CBA8E58006C207A /* MyPageTopView.swift */; };
 		488EB9FB2CBA8E9A006C207A /* ProfileManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488EB9FA2CBA8E9A006C207A /* ProfileManagerView.swift */; };
@@ -74,6 +77,9 @@
 		48710C1A2CB1B49200BBA753 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		48710C222CB1D48100BBA753 /* ProfileChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeViewController.swift; sourceTree = "<group>"; };
 		48710C2A2CB1DEAE00BBA753 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		48899E222CDE8ABA00D06322 /* JustDroppedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDroppedModel.swift; sourceTree = "<group>"; };
+		48899E242CDE8DDE00D06322 /* JustDroppedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustDroppedCollectionViewCell.swift; sourceTree = "<group>"; };
+		48899E262CDEC87D00D06322 /* justDroppedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = justDroppedCollectionView.swift; sourceTree = "<group>"; };
 		488EB9F62CBA8E27006C207A /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		488EB9F82CBA8E58006C207A /* MyPageTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTopView.swift; sourceTree = "<group>"; };
 		488EB9FA2CBA8E9A006C207A /* ProfileManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManagerView.swift; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 				48332F0A2CA7ED3E0063F687 /* LoginModel.swift */,
 				488EBA042CBAA014006C207A /* SavedProduct.swift */,
 				48CB54B52CBAAB0E0029AB1C /* UserInfo.swift */,
+				48899E222CDE8ABA00D06322 /* JustDroppedModel.swift */,
 				4849A9702CBEB0C100EE6E3F /* HomeModel.swift */,
 			);
 			path = Models;
@@ -146,6 +153,8 @@
 				488EB9FA2CBA8E9A006C207A /* ProfileManagerView.swift */,
 				4849A96C2CBEAEB600EE6E3F /* HomeCollectionViewCell.swift */,
 				4849A9762CBEEEF400EE6E3F /* CustomItemView.swift */,
+				48899E262CDEC87D00D06322 /* justDroppedCollectionView.swift */,
+				48899E242CDE8DDE00D06322 /* JustDroppedCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -371,7 +380,10 @@
 				488EB9F72CBA8E27006C207A /* MyPageView.swift in Sources */,
 				48710C0E2CB1AE2000BBA753 /* MainHomeViewController.swift in Sources */,
 				48710C2B2CB1DEAE00BBA753 /* MyPageViewController.swift in Sources */,
+				48899E232CDE8ABA00D06322 /* JustDroppedModel.swift in Sources */,
+				48899E252CDE8DDE00D06322 /* JustDroppedCollectionViewCell.swift in Sources */,
 				48710C152CB1B45400BBA753 /* HomeViewController.swift in Sources */,
+				48899E272CDEC87D00D06322 /* justDroppedCollectionView.swift in Sources */,
 				488EB9FF2CBA91F3006C207A /* SavedView.swift in Sources */,
 				4849A96D2CBEAEB600EE6E3F /* HomeCollectionViewCell.swift in Sources */,
 				4849A9732CBECF8200EE6E3F /* SearchViewController.swift in Sources */,

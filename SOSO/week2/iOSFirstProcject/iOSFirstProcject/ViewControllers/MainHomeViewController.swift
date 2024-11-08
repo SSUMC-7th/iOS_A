@@ -1,10 +1,3 @@
-//
-//  TabBarViewController.swift
-//  iOSFirstProcject
-//
-//  Created by 소민준 on 10/6/24.
-//
-
 import UIKit
 
 class MainHomeViewController: UITabBarController {
@@ -13,7 +6,7 @@ class MainHomeViewController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupTabBar()
-        appearance()
+        configureAppearance()
     }
 
     /// 탭바 설정 함수
@@ -34,17 +27,30 @@ class MainHomeViewController: UITabBarController {
         let myVC = UINavigationController(rootViewController: MyPageViewController())
         myVC.tabBarItem = UITabBarItem(title: "MY", image: UIImage(named: "my"), tag: 5)
         
+        // 탭 바에 뷰 컨트롤러 추가
         self.viewControllers = [homeVC, styleVC, shopVC, savedVC, myVC]
     }
 
-    private func appearance() {
+    /// 탭 바의 appearance 설정
+    private func configureAppearance() {
         let barAppearance = UITabBarAppearance()
-        barAppearance.stackedLayoutAppearance.selected.iconColor = UIColor.black
-        barAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.black]
-        barAppearance.stackedLayoutAppearance.selected.badgeBackgroundColor = UIColor.black
-        barAppearance.stackedLayoutAppearance.normal.badgeBackgroundColor = UIColor.black
         
+        // 선택된 상태의 아이콘 및 텍스트 색상
+        barAppearance.stackedLayoutAppearance.selected.iconColor = .black
+        barAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.black]
+        
+        // 선택되지 않은 상태의 아이콘 및 텍스트 색상
+        barAppearance.stackedLayoutAppearance.normal.iconColor = .gray
+        barAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.gray]
+        
+        // 탭 바 배경색 설정
+        barAppearance.backgroundColor = .white
+
+        // 스크롤 경계에서의 appearance 설정
         self.tabBar.standardAppearance = barAppearance
-        self.tabBar.backgroundColor = .clear
+        if #available(iOS 15.0, *) {
+            self.tabBar.scrollEdgeAppearance = barAppearance
+        }
     }
 }
+
