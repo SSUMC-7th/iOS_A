@@ -14,6 +14,7 @@
 		52C34CF12CA47B3E00DB8986 /* Kream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		52C34D032CA47B4000DB8986 /* Exceptions for "Kream" folder in "Kream" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -30,6 +31,11 @@
 			exceptions = (
 				52C34D032CA47B4000DB8986 /* Exceptions for "Kream" folder in "Kream" target */,
 			);
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		52C34CF32CA47B3E00DB8986 /* Kream */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+
 			path = Kream;
 			sourceTree = "<group>";
 		};

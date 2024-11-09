@@ -2,8 +2,10 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+
     let loginView = LoginView()
     let loginViewModel = LoginViewModel() // 뷰모델 인스턴스 생성
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,7 @@ class LoginViewController: UIViewController {
     
     // 로그인 버튼 클릭 시 호출되는 메서드
     @objc func handleLoginButtonTapped() {
+
         // LoginView의 이메일 및 비밀번호 텍스트 필드 값 가져오기
         guard let email = loginView.emailTextField.text, !email.isEmpty,
               let password = loginView.passwordTextField.text, !password.isEmpty else {
@@ -56,6 +59,11 @@ class LoginViewController: UIViewController {
         let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
+
+        let mainTabBarController = MainTabBarController()
+        mainTabBarController.modalPresentationStyle = .fullScreen // 전체 화면 모달 설정
+        present(mainTabBarController, animated: true, completion: nil) // 모달 전환
+
     }
 }
 

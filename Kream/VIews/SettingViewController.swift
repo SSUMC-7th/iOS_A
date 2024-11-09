@@ -2,8 +2,6 @@ import UIKit
 import SnapKit
 
 
-
-
 class SettingViewController: UIViewController {
     
     // 뒤로가기 버튼
@@ -60,7 +58,9 @@ class SettingViewController: UIViewController {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.cornerRadius = 5
         textField.font = UIFont.systemFont(ofSize: 14)
+
         textField.isUserInteractionEnabled = false
+
         return textField
     }()
     
@@ -73,7 +73,7 @@ class SettingViewController: UIViewController {
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = 5
-        
+
         return button
     }()
     
@@ -96,7 +96,9 @@ class SettingViewController: UIViewController {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.cornerRadius = 5
         textField.font = UIFont.systemFont(ofSize: 14)
+
         textField.isUserInteractionEnabled = false
+
         return textField
     }()
     
@@ -111,9 +113,11 @@ class SettingViewController: UIViewController {
         button.layer.cornerRadius = 5
         return button
     }()
-    //이메일 / 비밀번호 버튼 변경을 위한 플래그 변수
+
+    //이메일 // 비밀번호 버튼 변경을 위한 플래그 변수
     var isEmailEditing: Bool = false
     var isPasswordEditing: Bool = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,6 +142,7 @@ class SettingViewController: UIViewController {
         
         
         backButton.addTarget(self, action: #selector(handleBackButtonTapped), for: .touchUpInside)
+
         
         // 이메일 변경 버튼과 비밀번호 변경 버튼에 액션 추가
         changeEmailButton.addTarget(self, action: #selector(handleChangeEmailButtonTapped), for: .touchUpInside)
@@ -207,6 +212,25 @@ class SettingViewController: UIViewController {
         }
     
     //뒤로가기 매서드
+
+        // 이메일 변경 버튼과 비밀번호 변경 버튼에 액션 추가
+        changeEmailButton.addTarget(self, action: #selector(handleChangeEmailButtonTapped), for: .touchUpInside)
+        changePasswordButton.addTarget(self, action: #selector(handleChangePasswordButtonTapped), for: .touchUpInside)
+    }
+    // 이메일 변경 버튼 클릭 시 호출되는 메서드
+       @objc func handleChangeEmailButtonTapped() {
+           emailTextField.text = "" // 기존 텍스트 제거
+           emailTextField.placeholder = "새로운 이메일을 입력해주세요 !" // 플레이스홀더 변경
+       }
+       
+       // 비밀번호 변경 버튼 클릭 시 호출되는 메서드
+       @objc func handleChangePasswordButtonTapped() {
+           passwordTextField.text = "" // 기존 텍스트 제거
+           passwordTextField.placeholder = "새로운 비밀번호를 입력해주세요!" // 플레이스홀더 변경
+       }
+    
+    
+
     @objc func handleBackButtonTapped() {
         navigationController?.popViewController(animated: true)
     }

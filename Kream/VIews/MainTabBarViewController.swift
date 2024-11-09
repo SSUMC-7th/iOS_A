@@ -12,10 +12,12 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         
        
+
         let homeViewController = createNavController(for: MainViewController(), title: "HOME", image: UIImage(named: "home_icon")!)
         let styleViewController = createNavController(for: StyleViewController(), title: "STYLE", image: UIImage(named: "style_icon")!)
         let shopViewController = createNavController(for: ShopViewController(), title: "SHOP", image: UIImage(named: "shop_icon")!)
         let savedViewController = createNavController(for: SavedViewController(), title: "Saved", image: UIImage(named: "saved_icon")!)
+
         let myViewController = createNavController(for: MyViewController(), title: "My", image: UIImage(named: "mypage_icon")!)
 
         

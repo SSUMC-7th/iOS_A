@@ -3,6 +3,7 @@ import SnapKit
 
 class JustDroppedCollectionViewCell: UICollectionViewCell {
     
+
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -10,6 +11,7 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 10
         return imageView
     }()
+
     
     
        
@@ -35,6 +37,7 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
     }()
 
     
+
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 12)
@@ -70,12 +73,15 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
         bookmarkButton.addTarget(self, action: #selector(toggleBookmark), for: .touchUpInside)
     }
 
+
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func setupLayout() {
         contentView.addSubview(imageView)
+
         contentView.addSubview(bookmarkButton)
         contentView.addSubview(titleLabel)
         contentView.addSubview(descriptionLabel)
@@ -84,6 +90,7 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
         
         imageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
+
             make.height.equalTo(142)
         }
 
@@ -96,11 +103,21 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
 
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(4)
+  make.height.equalTo(142) // 이미지 높이를 142로 설정
+        }
+
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(4) // 이미지와의 간격을 줄임
+
             make.leading.trailing.equalToSuperview().inset(8)
         }
         
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(2)
+
+
+
+            make.top.equalTo(titleLabel.snp.bottom).offset(2) // 타이틀과의 간격을 줄임
+
             make.leading.trailing.equalToSuperview().inset(8)
         }
         
@@ -115,6 +132,7 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
             make.bottom.equalToSuperview().offset(-8)
         }
     }
+
     
     @objc func bookmarkButtonTapped() {
             bookmarkButton.isSelected.toggle()
@@ -127,6 +145,7 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
            bookmarkButton.isSelected.toggle()
        }
    
+
     
     func configure(with item: JustDroppedItem) {
         imageView.image = item.image
