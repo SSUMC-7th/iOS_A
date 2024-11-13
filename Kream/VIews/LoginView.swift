@@ -81,11 +81,11 @@ class LoginView: UIView {
     let kakaoLoginButton: UIButton = {
         let button = UIButton(type: .system)
         
-        // 'Inter-Bold' 폰트 사용 (프로젝트에 포함되어 있어야 함)
+       
         let customFont = UIFont(name: "Inter-Bold", size: 13) ?? UIFont.boldSystemFont(ofSize: 16)
         
         let title = NSAttributedString(string: "카카오로 로그인", attributes: [
-            .font: customFont // Inter-Bold 폰트로 설정
+            .font: customFont
         ])
         
         button.setAttributedTitle(title, for: .normal)
@@ -110,11 +110,11 @@ class LoginView: UIView {
     let appleLoginButton: UIButton = {
         let button = UIButton(type: .system)
         
-        // 'Inter-Bold' 폰트 사용 (프로젝트에 포함되어 있어야 함)
+       
         let customFont = UIFont(name: "Inter-Bold", size: 13) ?? UIFont.boldSystemFont(ofSize: 16)
         
         let title = NSAttributedString(string: "Apple로 로그인", attributes: [
-            .font: customFont // Inter-Bold 폰트로 설정
+            .font: customFont
         ])
         
         button.setAttributedTitle(title, for: .normal)

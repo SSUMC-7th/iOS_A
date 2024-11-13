@@ -1,6 +1,9 @@
 import UIKit
 import SnapKit
 
+
+
+
 class SettingViewController: UIViewController {
     
     // 뒤로가기 버튼
@@ -57,6 +60,7 @@ class SettingViewController: UIViewController {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.cornerRadius = 5
         textField.font = UIFont.systemFont(ofSize: 14)
+        textField.isUserInteractionEnabled = false
         return textField
     }()
     
@@ -69,6 +73,7 @@ class SettingViewController: UIViewController {
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = 5
+        
         return button
     }()
     
@@ -91,6 +96,7 @@ class SettingViewController: UIViewController {
         textField.layer.borderColor = UIColor.lightGray.cgColor
         textField.layer.cornerRadius = 5
         textField.font = UIFont.systemFont(ofSize: 14)
+        textField.isUserInteractionEnabled = false
         return textField
     }()
     
@@ -105,8 +111,9 @@ class SettingViewController: UIViewController {
         button.layer.cornerRadius = 5
         return button
     }()
-    
-    
+    //이메일 / 비밀번호 버튼 변경을 위한 플래그 변수
+    var isEmailEditing: Bool = false
+    var isPasswordEditing: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,23 +138,75 @@ class SettingViewController: UIViewController {
         
         
         backButton.addTarget(self, action: #selector(handleBackButtonTapped), for: .touchUpInside)
+        
         // 이메일 변경 버튼과 비밀번호 변경 버튼에 액션 추가
         changeEmailButton.addTarget(self, action: #selector(handleChangeEmailButtonTapped), for: .touchUpInside)
         changePasswordButton.addTarget(self, action: #selector(handleChangePasswordButtonTapped), for: .touchUpInside)
+        
+        // UserDefaults에서 저장된 이메일과 비밀번호 불러와서 텍스트 필드에 설정
+           if let userEmail = UserDefaults.standard.string(forKey: "userEmail") {
+               emailTextField.text = userEmail
+           }
+           if let userPassword = UserDefaults.standard.string(forKey: "userPassword") {
+               passwordTextField.text = userPassword
+           }
+        
     }
     // 이메일 변경 버튼 클릭 시 호출되는 메서드
-       @objc func handleChangeEmailButtonTapped() {
-           emailTextField.text = "" // 기존 텍스트 제거
-           emailTextField.placeholder = "새로운 이메일을 입력해주세요 !" // 플레이스홀더 변경
-       }
-       
-       // 비밀번호 변경 버튼 클릭 시 호출되는 메서드
-       @objc func handleChangePasswordButtonTapped() {
-           passwordTextField.text = "" // 기존 텍스트 제거
-           passwordTextField.placeholder = "새로운 비밀번호를 입력해주세요!" // 플레이스홀더 변경
-       }
+        @objc func handleChangeEmailButtonTapped() {
+            //변경 -> 확인
+            changeEmailButton.setTitle("확인", for: .normal)
+            
+            // 이메일 텍스트 필드를 편집 가능하도록 설정
+            emailTextField.isUserInteractionEnabled = true
+            emailTextField.becomeFirstResponder()
+            emailTextField.text = "" // 기존 텍스트 제거
+            emailTextField.placeholder = "새로운 이메일을 입력해주세요 !"
+            
+            // 확인 버튼이 클릭되었을 때 UserDefaults에 새로운 이메일 저장
+            changeEmailButton.removeTarget(self, action: #selector(handleChangeEmailButtonTapped), for: .touchUpInside)
+            changeEmailButton.addTarget(self, action: #selector(saveNewEmail), for: .touchUpInside)
+        }
+        
+        @objc func saveNewEmail() {
+            // 이메일을 UserDefaults에 저장하고, 텍스트 필드 편집 불가하도록 변경
+            if let newEmail = emailTextField.text, !newEmail.isEmpty {
+                UserDefaults.standard.set(newEmail, forKey: "userEmail")
+                emailTextField.isUserInteractionEnabled = false
+                changeEmailButton.setTitle("변경", for: .normal) // 버튼 텍스트를 다시 "변경"으로 변경
+                changeEmailButton.removeTarget(self, action: #selector(saveNewEmail), for: .touchUpInside)
+                changeEmailButton.addTarget(self, action: #selector(handleChangeEmailButtonTapped), for: .touchUpInside)
+            }
+        }
+        
+        // 비밀번호 변경 버튼 클릭 시 호출되는 메서드
+        @objc func handleChangePasswordButtonTapped() {
+           //변경 -> 확인
+            changePasswordButton.setTitle("확인", for: .normal)
+            
+            // 비밀번호 텍스트 필드를 편집 가능하도록 설정
+            passwordTextField.isUserInteractionEnabled = true
+            passwordTextField.becomeFirstResponder() // 텍스트 필드에 포커스 설정
+            passwordTextField.text = "" // 기존 텍스트 제거
+            passwordTextField.placeholder = "새로운 비밀번호를 입력해주세요!" // 플레이스홀더 변경
+            
+            // 확인 버튼이 클릭되었을 때 UserDefaults에 새로운 비밀번호 저장
+            changePasswordButton.removeTarget(self, action: #selector(handleChangePasswordButtonTapped), for: .touchUpInside)
+            changePasswordButton.addTarget(self, action: #selector(saveNewPassword), for: .touchUpInside)
+        }
+        
+        @objc func saveNewPassword() {
+            // 비밀번호를 UserDefaults에 저장하고, 텍스트 필드 편집 불가하도록 변경
+            if let newPassword = passwordTextField.text, !newPassword.isEmpty {
+                UserDefaults.standard.set(newPassword, forKey: "userPassword")
+                passwordTextField.isUserInteractionEnabled = false
+                changePasswordButton.setTitle("변경", for: .normal) // 버튼 텍스트를 다시 "변경"으로 변경
+                changePasswordButton.removeTarget(self, action: #selector(saveNewPassword), for: .touchUpInside)
+                changePasswordButton.addTarget(self, action: #selector(handleChangePasswordButtonTapped), for: .touchUpInside)
+            }
+        }
     
-    
+    //뒤로가기 매서드
     @objc func handleBackButtonTapped() {
         navigationController?.popViewController(animated: true)
     }

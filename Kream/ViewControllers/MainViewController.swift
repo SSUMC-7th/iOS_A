@@ -45,8 +45,10 @@ class MainViewController: UIViewController {
         segmentedControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
         return segmentedControl
     }()
-    // 밑줄 뷰 추가
+    // 뭐 챌린지 ..
     let underlineView = UIHelpers.createSeparatorLine(color: .black, height: 2)
+    let mainLabel = UIHelpers.createLabel(text: "본격 한파 대비! 연말 필수템 모음", font: .boldSystemFont(ofSize: 16), textColor: .black)
+    let hashtagLabel = UIHelpers.createLabel(text: "#해피홀리록챌린지", font: .systemFont(ofSize: 14), textColor: .gray)
     
     // 메뉴 아이템 데이터 배열
     let menuItems = [
@@ -96,6 +98,8 @@ class MainViewController: UIViewController {
         collectionView.backgroundColor = .white
         return collectionView
     }()
+    //밑에 구분선 하나 더 추가
+    let newSeparatorLine = UIHelpers.createSeparatorLine()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,6 +126,9 @@ class MainViewController: UIViewController {
         contentView.addSubview(justDroppedTitleLabel)
         contentView.addSubview(justDroppedSubtitleLabel)
         contentView.addSubview(justDroppedCollectionView)
+        contentView.addSubview(newSeparatorLine)
+        contentView.addSubview(mainLabel)
+        contentView.addSubview(hashtagLabel)
         
         setupCollectionView()
         setupLayout()
@@ -200,14 +207,31 @@ class MainViewController: UIViewController {
             make.leading.equalTo(justDroppedTitleLabel)
         }
 
-        // Just Dropped 컬렉션 뷰 레이아웃
-        justDroppedCollectionView.snp.remakeConstraints { make in
-            make.top.equalTo(justDroppedSubtitleLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(250)
-            make.bottom.equalToSuperview().offset(-30)
-        }
-
+        justDroppedCollectionView.snp.makeConstraints { make in
+                make.top.equalTo(justDroppedSubtitleLabel.snp.bottom).offset(16)
+                make.leading.trailing.equalToSuperview()
+                make.height.equalTo(200)
+            }
+            
+            // Just Dropped 섹션 아래 구분선 추가
+            newSeparatorLine.snp.makeConstraints { make in
+                make.top.equalTo(justDroppedCollectionView.snp.bottom).offset(30)
+                make.leading.trailing.equalToSuperview()
+                make.height.equalTo(1)
+            }
+            
+            // 본문 레이블 설정
+            mainLabel.snp.makeConstraints { make in
+                make.top.equalTo(newSeparatorLine.snp.bottom).offset(20)
+                make.leading.equalToSuperview().offset(16)
+            }
+            
+            // 해시태그 레이블 설정
+            hashtagLabel.snp.makeConstraints { make in
+                make.top.equalTo(mainLabel.snp.bottom).offset(4)
+                make.leading.equalTo(mainLabel)
+                make.bottom.equalToSuperview().offset(-20) // 전체 콘텐츠 하단 간격
+            }
     }
     
     // MARK: - UICollectionView 설정 메서드
@@ -288,6 +312,7 @@ class MainViewController: UIViewController {
                 make.height.equalTo(200)
                 make.bottom.equalToSuperview().offset(-20)
             }
+            
         default:
             let label = UILabel()
             label.textAlignment = .center
@@ -322,11 +347,9 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.justDroppedCollectionView {
-            return CGSize(width: 150, height: 230) 
+            return CGSize(width: 150, height: 230)
         }
         return CGSize(width: 61, height: 81)
     }
 
 }
-
-
