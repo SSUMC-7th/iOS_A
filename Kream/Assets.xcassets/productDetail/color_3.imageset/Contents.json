@@ -1,21 +1,15 @@
 {
   "images" : [
     {
-
-      "filename" : "mypage_icon.png",
-
+      "filename" : "Rectangle 9654.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-
-      "filename" : "my_icon 2.png",
-
       "idiom" : "universal",
       "scale" : "3x"
     }
