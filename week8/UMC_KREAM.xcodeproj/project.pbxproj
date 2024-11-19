@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		48566FB32CECBFBA00846862 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48566FB22CECBFBA00846862 /* SnapKit */; };
+		48735EA62CED1B46006680BC /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 48735EA52CED1B46006680BC /* Then */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		48566F8A2CECB68E00846862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48566F6B2CECB68C00846862 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48566F722CECB68C00846862;
+			remoteInfo = UMC_KREAM;
+		};
+		48566F942CECB68E00846862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 48566F6B2CECB68C00846862 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48566F722CECB68C00846862;
+			remoteInfo = UMC_KREAM;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		48566F732CECB68C00846862 /* UMC_KREAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMC_KREAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		48566F892CECB68E00846862 /* UMC_KREAMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UMC_KREAMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		48566F932CECB68E00846862 /* UMC_KREAMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UMC_KREAMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		48566F9B2CECB68E00846862 /* Exceptions for "UMC_KREAM" folder in "UMC_KREAM" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 48566F722CECB68C00846862 /* UMC_KREAM */;
+		};
+		48735E9E2CED0922006680BC /* Exceptions for "UMC_KREAM" folder in "UMC_KREAMTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Presentation/Home/Controller/HomeViewController.swift,
+			);
+			target = 48566F882CECB68E00846862 /* UMC_KREAMTests */;
+		};
+		48735E9F2CED0922006680BC /* Exceptions for "UMC_KREAM" folder in "UMC_KREAMUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Presentation/Home/Controller/HomeViewController.swift,
+			);
+			target = 48566F922CECB68E00846862 /* UMC_KREAMUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		48566F752CECB68C00846862 /* UMC_KREAM */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				48566F9B2CECB68E00846862 /* Exceptions for "UMC_KREAM" folder in "UMC_KREAM" target */,
+				48735E9E2CED0922006680BC /* Exceptions for "UMC_KREAM" folder in "UMC_KREAMTests" target */,
+				48735E9F2CED0922006680BC /* Exceptions for "UMC_KREAM" folder in "UMC_KREAMUITests" target */,
+			);
+			path = UMC_KREAM;
+			sourceTree = "<group>";
+		};
+		48566F8C2CECB68E00846862 /* UMC_KREAMTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = UMC_KREAMTests;
+			sourceTree = "<group>";
+		};
+		48566F962CECB68E00846862 /* UMC_KREAMUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = UMC_KREAMUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		48566F702CECB68C00846862 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48566FB32CECBFBA00846862 /* SnapKit in Frameworks */,
+				48735EA62CED1B46006680BC /* Then in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48566F862CECB68E00846862 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48566F902CECB68E00846862 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		48566F6A2CECB68C00846862 = {
+			isa = PBXGroup;
+			children = (
+				48566F752CECB68C00846862 /* UMC_KREAM */,
+				48566F8C2CECB68E00846862 /* UMC_KREAMTests */,
+				48566F962CECB68E00846862 /* UMC_KREAMUITests */,
+				48566F742CECB68C00846862 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		48566F742CECB68C00846862 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				48566F732CECB68C00846862 /* UMC_KREAM.app */,
+				48566F892CECB68E00846862 /* UMC_KREAMTests.xctest */,
+				48566F932CECB68E00846862 /* UMC_KREAMUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		48566F722CECB68C00846862 /* UMC_KREAM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48566F9C2CECB68E00846862 /* Build configuration list for PBXNativeTarget "UMC_KREAM" */;
+			buildPhases = (
+				48566F6F2CECB68C00846862 /* Sources */,
+				48566F702CECB68C00846862 /* Frameworks */,
+				48566F712CECB68C00846862 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				48566F752CECB68C00846862 /* UMC_KREAM */,
+			);
+			name = UMC_KREAM;
+			packageProductDependencies = (
+				48566FB22CECBFBA00846862 /* SnapKit */,
+				48735EA52CED1B46006680BC /* Then */,
+			);
+			productName = UMC_KREAM;
+			productReference = 48566F732CECB68C00846862 /* UMC_KREAM.app */;
+			productType = "com.apple.product-type.application";
+		};
+		48566F882CECB68E00846862 /* UMC_KREAMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48566FA12CECB68E00846862 /* Build configuration list for PBXNativeTarget "UMC_KREAMTests" */;
+			buildPhases = (
+				48566F852CECB68E00846862 /* Sources */,
+				48566F862CECB68E00846862 /* Frameworks */,
+				48566F872CECB68E00846862 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48566F8B2CECB68E00846862 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				48566F8C2CECB68E00846862 /* UMC_KREAMTests */,
+			);
+			name = UMC_KREAMTests;
+			packageProductDependencies = (
+			);
+			productName = UMC_KREAMTests;
+			productReference = 48566F892CECB68E00846862 /* UMC_KREAMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		48566F922CECB68E00846862 /* UMC_KREAMUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48566FA42CECB68E00846862 /* Build configuration list for PBXNativeTarget "UMC_KREAMUITests" */;
+			buildPhases = (
+				48566F8F2CECB68E00846862 /* Sources */,
+				48566F902CECB68E00846862 /* Frameworks */,
+				48566F912CECB68E00846862 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48566F952CECB68E00846862 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				48566F962CECB68E00846862 /* UMC_KREAMUITests */,
+			);
+			name = UMC_KREAMUITests;
+			packageProductDependencies = (
+			);
+			productName = UMC_KREAMUITests;
+			productReference = 48566F932CECB68E00846862 /* UMC_KREAMUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		48566F6B2CECB68C00846862 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					48566F722CECB68C00846862 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					48566F882CECB68E00846862 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 48566F722CECB68C00846862;
+					};
+					48566F922CECB68E00846862 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 48566F722CECB68C00846862;
+					};
+				};
+			};
+			buildConfigurationList = 48566F6E2CECB68C00846862 /* Build configuration list for PBXProject "UMC_KREAM" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 48566F6A2CECB68C00846862;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				48566FB12CECBFBA00846862 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				48735EA42CED1B45006680BC /* XCRemoteSwiftPackageReference "Then" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 48566F742CECB68C00846862 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				48566F722CECB68C00846862 /* UMC_KREAM */,
+				48566F882CECB68E00846862 /* UMC_KREAMTests */,
+				48566F922CECB68E00846862 /* UMC_KREAMUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		48566F712CECB68C00846862 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48566F872CECB68E00846862 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48566F912CECB68E00846862 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		48566F6F2CECB68C00846862 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48566F852CECB68E00846862 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48566F8F2CECB68E00846862 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48566F8B2CECB68E00846862 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48566F722CECB68C00846862 /* UMC_KREAM */;
+			targetProxy = 48566F8A2CECB68E00846862 /* PBXContainerItemProxy */;
+		};
+		48566F952CECB68E00846862 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48566F722CECB68C00846862 /* UMC_KREAM */;
+			targetProxy = 48566F942CECB68E00846862 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		48566F9D2CECB68E00846862 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UMC_KREAM/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sominjun.UMC-KREAM";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		48566F9E2CECB68E00846862 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UMC_KREAM/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sominjun.UMC-KREAM";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		48566F9F2CECB68E00846862 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		48566FA02CECB68E00846862 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		48566FA22CECB68E00846862 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sominjun.UMC-KREAMTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UMC_KREAM.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UMC_KREAM";
+			};
+			name = Debug;
+		};
+		48566FA32CECB68E00846862 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sominjun.UMC-KREAMTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UMC_KREAM.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UMC_KREAM";
+			};
+			name = Release;
+		};
+		48566FA52CECB68E00846862 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sominjun.UMC-KREAMUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UMC_KREAM;
+			};
+			name = Debug;
+		};
+		48566FA62CECB68E00846862 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sominjun.UMC-KREAMUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UMC_KREAM;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		48566F6E2CECB68C00846862 /* Build configuration list for PBXProject "UMC_KREAM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48566F9F2CECB68E00846862 /* Debug */,
+				48566FA02CECB68E00846862 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48566F9C2CECB68E00846862 /* Build configuration list for PBXNativeTarget "UMC_KREAM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48566F9D2CECB68E00846862 /* Debug */,
+				48566F9E2CECB68E00846862 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48566FA12CECB68E00846862 /* Build configuration list for PBXNativeTarget "UMC_KREAMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48566FA22CECB68E00846862 /* Debug */,
+				48566FA32CECB68E00846862 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		48566FA42CECB68E00846862 /* Build configuration list for PBXNativeTarget "UMC_KREAMUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48566FA52CECB68E00846862 /* Debug */,
+				48566FA62CECB68E00846862 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		48566FB12CECBFBA00846862 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		48735EA42CED1B45006680BC /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		48566FB22CECBFBA00846862 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48566FB12CECBFBA00846862 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		48735EA52CED1B46006680BC /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48735EA42CED1B45006680BC /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 48566F6B2CECB68C00846862 /* Project object */;
+}
