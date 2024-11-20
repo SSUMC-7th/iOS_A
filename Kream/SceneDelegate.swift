@@ -15,15 +15,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
         // ProductDetailViewController를 초기 루트 뷰 컨트롤러로 설정
-        let productDetailViewController = ProductDetailViewController()
+        let loginViewController = LoginViewController()
        
-        window?.rootViewController = UINavigationController(rootViewController: ProductDetailViewController())
-
+        window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
         window?.makeKeyAndVisible()
     }
 
