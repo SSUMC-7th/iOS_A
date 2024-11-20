@@ -1,6 +1,6 @@
 import UIKit
 import SnapKit
-
+import KeychainAccess
 
 protocol ProfileEditDelegate: AnyObject {
     // 프로필 이미지가 변경되었을 때 호출될 메서드
@@ -96,6 +96,8 @@ class MyViewController: UIViewController {
         return view
     }()
     
+    let keychain = Keychain(service: "com.yourapp.kakaoLogin") // Keychain 인스턴스 생성
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -138,6 +140,11 @@ class MyViewController: UIViewController {
          // UserDefaults에서 저장된 이메일 불러오기
          if let savedEmail = UserDefaults.standard.string(forKey: "userEmail") {
              usernameLabel.text = savedEmail // usernameLabel에 저장된 이메일 출력
+         }
+
+         // Keychain에서 저장된 카카오 닉네임 불러오기
+         if let kakaoNickname = try? keychain.get("kakaoUserNickname") {
+             usernameLabel.text = kakaoNickname
          }
      }
     
@@ -214,5 +221,4 @@ extension MyViewController: ProfileEditDelegate {
         UserDefaults.standard.setImage(image, forKey: "profileImage") // 변경된 이미지를 UserDefaults에 저장
     }
 }
-
 
