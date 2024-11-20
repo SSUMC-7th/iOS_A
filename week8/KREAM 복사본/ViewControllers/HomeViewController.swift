@@ -9,6 +9,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         view = rootView
         setupAction()
         setupDelegate()
+        setupSearchBar()
     }
     
     private func setupAction() {
@@ -99,3 +100,17 @@ extension HomeViewController {
         }
     }
 }
+
+extension HomeViewController: UISearchBarDelegate {
+    func setupSearchBar() {
+        // searchBar의 delegate 설정
+        rootView.searchBar.delegate = self
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        // SearchViewController로 이동
+        let searchViewController = SearchViewController()
+        navigationController?.pushViewController(searchViewController, animated: true)
+    }
+}
+

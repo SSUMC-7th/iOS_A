@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchView: UIView {
+class SearchinView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,34 +18,38 @@ class SearchView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    private let searchBar = UILabel().then {
-        $0.text = "  브랜드, 상품, 프로필, 태그 등"
-        $0.font = UIFont(name: "Pretendard", size: 13.5)
-        $0.textColor = .lightGray
-        $0.backgroundColor = UIColor.systemGray5
-        $0.layer.cornerRadius = 12
+    let searchBar = UISearchBar().then {
+        $0.placeholder = "브랜드, 상품, 프로필, 태그 등"
+        $0.searchBarStyle = .minimal
         $0.clipsToBounds = true
+
+        if let textField = $0.value(forKey: "searchField") as? UITextField {
+            textField.textColor = UIColor.lightGray // 텍스트 색상 설정
+            textField.backgroundColor = UIColor.systemGray5 // 텍스트 필드 배경색 설정
+        }
+    }
+    
+    private let passwordTextField = UITextField().then {
+        $0.placeholder = ""
+        $0.borderStyle = .roundedRect
+        $0.isSecureTextEntry = true
+        $0.font = UIFont.systemFont(ofSize: 12)
+        $0.layer.cornerRadius = 15
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.lightGray.cgColor
     }
 
-
-    let searchRecommendation = UILabel().then {
-        $0.font = .boldSystemFont(ofSize: 15)
-        $0.textColor = .black
-        $0.text = "추천 검색어"
-    }
 
     let cancelButton = UIButton().then {
         $0.setTitle("취소", for: .normal)
         $0.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         $0.setTitleColor(UIColor.black, for: .normal)
     }
-
+    
 
     private func addComponents() {
         self.addSubview(searchBar)
         self.addSubview(cancelButton)
-        self.addSubview(searchRecommendation)
         
         
         searchBar.snp.makeConstraints{
@@ -60,11 +64,8 @@ class SearchView: UIView {
             $0.right.equalToSuperview().offset(-16)
         }
         
-        searchRecommendation.snp.makeConstraints{
-            $0.top.equalTo(searchBar.snp.bottom).offset(41)
-            $0.leading.equalToSuperview().offset(16)
-        }
-        
+
+
         
     }
 }

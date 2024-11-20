@@ -15,14 +15,18 @@ class Homeview: UIView {
     //contentView
     private let contentView = UIView()
 
-    private let searchBar = UILabel().then {
-        $0.text = "  브랜드, 상품, 프로필, 태그 등"
-        $0.font = UIFont(name: "Pretendard", size: 13.5)
-        $0.textColor = .lightGray
-        $0.backgroundColor = UIColor.systemGray5
-        $0.layer.cornerRadius = 12
+    let searchBar = UISearchBar().then {
+        $0.placeholder = "브랜드, 상품, 프로필, 태그 등"
+        $0.searchBarStyle = .minimal
         $0.clipsToBounds = true
+
+        if let textField = $0.value(forKey: "searchField") as? UITextField {
+            textField.textColor = UIColor.lightGray // 텍스트 색상 설정
+            textField.backgroundColor = UIColor.systemGray5 // 텍스트 필드 배경색 설정
+        }
     }
+
+
 
     private let AlarmImageView = UIImageView().then {
         $0.image = UIImage(named: "alarm")
