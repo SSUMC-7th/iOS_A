@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E968C7D2CF65884003C85DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1E968C7C2CF65884003C85DD /* Kingfisher */; };
 		1EB2ABA82CBE850400782620 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1EB2ABA72CBE850400782620 /* Then */; };
 		1ECD20322CB995D3007DFF8D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1ECD20312CB995D3007DFF8D /* SnapKit */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E968C7D2CF65884003C85DD /* Kingfisher in Frameworks */,
 				1ECD20322CB995D3007DFF8D /* SnapKit in Frameworks */,
 				1EB2ABA82CBE850400782620 /* Then in Frameworks */,
 			);
@@ -122,6 +124,7 @@
 			packageProductDependencies = (
 				1ECD20312CB995D3007DFF8D /* SnapKit */,
 				1EB2ABA72CBE850400782620 /* Then */,
+				1E968C7C2CF65884003C85DD /* Kingfisher */,
 			);
 			productName = KREAM;
 			productReference = 1ECD1FD02CB97749007DFF8D /* KREAM.app */;
@@ -202,6 +205,7 @@
 			packageReferences = (
 				1ECD20302CB995D3007DFF8D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				1EB2ABA62CBE850400782620 /* XCRemoteSwiftPackageReference "Then" */,
+				1E968C7B2CF65884003C85DD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1ECD1FD12CB97749007DFF8D /* Products */;
@@ -560,6 +564,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1E968C7B2CF65884003C85DD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.1;
+			};
+		};
 		1EB2ABA62CBE850400782620 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
@@ -579,6 +591,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1E968C7C2CF65884003C85DD /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E968C7B2CF65884003C85DD /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		1EB2ABA72CBE850400782620 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1EB2ABA62CBE850400782620 /* XCRemoteSwiftPackageReference "Then" */;

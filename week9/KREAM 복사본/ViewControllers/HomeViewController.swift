@@ -2,10 +2,11 @@ import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDelegate {
     private let rootView = Homeview()
+    private var homeList = HomeModel.Makedummy()
+    private var justDroppedList = JustDroppedModel.MakeDummy2()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view = rootView
         setupAction()
         setupDelegate()
@@ -25,6 +26,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         rootView.HomeCollectionView.delegate = self
         rootView.JustDroppedCollectionView.dataSource = self
         rootView.JustDroppedCollectionView.delegate = self
+        
+        // 셀 등록
+        rootView.HomeCollectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
+        rootView.JustDroppedCollectionView.register(JustDroppedCollectionViewCell.self, forCellWithReuseIdentifier: JustDroppedCollectionViewCell.identifier)
     }
     
     @objc
@@ -44,9 +49,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == rootView.HomeCollectionView {
-            return HomeModel.Makedummy().count
+            return homeList.count
         } else if collectionView == rootView.JustDroppedCollectionView {
-            return JustDroppedModel.MakeDummy2().count
+            return justDroppedList.count
         }
         return 0
     }
@@ -54,32 +59,35 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == rootView.HomeCollectionView {
             guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: HomeCollectionViewCell.identifier,
-                    for: indexPath
-                ) as? HomeCollectionViewCell else {
-                    return UICollectionViewCell()
-                }
-            let list = HomeModel.Makedummy()
-            cell.imageView.image = list[indexPath.row].image
-            cell.titleLabel.text = list[indexPath.row].name
+                withReuseIdentifier: HomeCollectionViewCell.identifier,
+                for: indexPath
+            ) as? HomeCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            let model = homeList[indexPath.row]
+            cell.imageView.image = model.image
+            cell.titleLabel.text = model.name
             return cell
-            
         } else if collectionView == rootView.JustDroppedCollectionView {
             guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: JustDroppedCollectionViewCell.identifier,
-                    for: indexPath
-                ) as? JustDroppedCollectionViewCell else {
-                    return UICollectionViewCell()
-                }
-            let list = JustDroppedModel.MakeDummy2()
-            cell.imageView.image = list[indexPath.row].image
-            cell.titleLabel.text = list[indexPath.row].transactionCount
-            cell.brandLabel.text = list[indexPath.row].brandName
-            cell.productLabel.text = list[indexPath.row].productName
-            cell.priceLabel.text = list[indexPath.row].price
-            cell.nowBuyingLabel.text = list[indexPath.row].buyNowLabel
+                withReuseIdentifier: JustDroppedCollectionViewCell.identifier,
+                for: indexPath
+            ) as? JustDroppedCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            let model = justDroppedList[indexPath.row]
+            if let imageUrl = model.image {
+                cell.imageView.kf.setImage(with: imageUrl)
+            } else {
+                cell.imageView.image = UIImage(named: "placeholder")
+            }
+            cell.titleLabel.text = model.transactionCount
+            cell.brandLabel.text = model.brandName
+            cell.productLabel.text = model.productName
+            cell.priceLabel.text = model.price
+            cell.nowBuyingLabel.text = model.buyNowLabel
             cell.saveButton.setImage(
-                UIImage(systemName: list[indexPath.row].isBookmarked ? "bookmark.fill" : "bookmark"),
+                UIImage(systemName: model.isBookmarked ? "bookmark.fill" : "bookmark"),
                 for: .normal
             )
             return cell
@@ -88,29 +96,17 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 }
 
-
-extension HomeViewController {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // JustDroppedCollectionView에서 셀이 클릭되었는지 확인
-        if collectionView == rootView.JustDroppedCollectionView {
-            // ProductViewController로 이동
-            let productViewController = ProductViewController()
-            
-            navigationController?.pushViewController(productViewController, animated: true)
-        }
-    }
-}
-
 extension HomeViewController: UISearchBarDelegate {
     func setupSearchBar() {
-        // searchBar의 delegate 설정
         rootView.searchBar.delegate = self
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        // SearchViewController로 이동
         let searchViewController = SearchViewController()
-        navigationController?.pushViewController(searchViewController, animated: true)
+        if let navigationController = navigationController {
+            navigationController.pushViewController(searchViewController, animated: true)
+        } else {
+            present(searchViewController, animated: true, completion: nil)
+        }
     }
 }
-

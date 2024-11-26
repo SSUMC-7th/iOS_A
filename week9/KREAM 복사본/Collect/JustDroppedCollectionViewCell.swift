@@ -1,14 +1,10 @@
 import UIKit
+import Kingfisher
 
 class JustDroppedCollectionViewCell: UICollectionViewCell {
-    static let identifier = "JustDroppedCollectionViewCell"
-    
-    // 모델 설정
-    var model: JustDroppedModel? {
-        didSet {
-            updateBookmarkState() // 모델이 설정될 때 북마크 상태 업데이트
-        }
-    }
+    static let identifier = "JustDroppedCollectionViewCell" // 셀 식별자
+
+    private var model: JustDroppedModel? // 모델 저장
     
     // 이미지 뷰
     let imageView = UIImageView().then {
@@ -46,6 +42,7 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
         $0.textColor = .black
     }
     
+    // 즉시 구매 라벨
     let nowBuyingLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 10, weight: .light)
         $0.textColor = UIColor(red: 162/255, green: 162/255, blue: 162/255, alpha: 1.0)
@@ -54,6 +51,7 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        setupActions()
     }
     
     required init?(coder: NSCoder) {
@@ -96,23 +94,59 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
         }
         
         priceLabel.snp.makeConstraints { make in
-            make.top.equalTo(brandLabel.snp.bottom).offset(43)
+            make.top.equalTo(productLabel.snp.bottom).offset(8)
             make.leading.equalTo(imageView.snp.leading).offset(4)
         }
         
         nowBuyingLabel.snp.makeConstraints { make in
-            make.top.equalTo(priceLabel.snp.bottom).offset(2)
+            make.top.equalTo(priceLabel.snp.bottom).offset(4)
             make.leading.equalTo(imageView.snp.leading).offset(4)
         }
     }
     
-    // 북마크 상태 업데이트 메서드
+    private func setupActions() {
+        // 북마크 버튼에 액션 추가
+        saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
+    }
+    
+    // MARK: - Configure Cell
+    func configure(with model: JustDroppedModel) {
+        self.model = model
+        
+        // 이미지 설정
+        if let imageUrl = model.image {
+            imageView.kf.setImage(with: imageUrl)
+        } else {
+            imageView.image = UIImage(named: "placeholder")
+        }
+        
+        // 라벨 설정
+        titleLabel.text = model.transactionCount
+        brandLabel.text = model.brandName
+        productLabel.text = model.productName
+        priceLabel.text = model.price
+        nowBuyingLabel.text = model.buyNowLabel
+        
+        // 북마크 상태 업데이트
+        updateBookmarkState()
+    }
+    
     private func updateBookmarkState() {
         guard let model = model else { return }
         
-        // isBookmarked가 true이면 채워진 아이콘, false이면 빈 아이콘 설정
+        // 북마크 상태에 따라 아이콘 변경
         let iconName = model.isBookmarked ? "bookmark.fill" : "bookmark"
         saveButton.setImage(UIImage(systemName: iconName), for: .normal)
     }
-
+    
+    @objc private func didTapSaveButton() {
+        guard var model = model else { return }
+        
+        // 북마크 상태 토글
+        model.isBookmarked.toggle()
+        self.model = model
+        
+        // 북마크 상태 업데이트
+        updateBookmarkState()
+    }
 }
