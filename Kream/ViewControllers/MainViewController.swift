@@ -2,73 +2,28 @@ import UIKit
 import SnapKit
 
 
-// UI 구성 요소 설정을 위한 헬퍼 클래스
-class UIHelper {
-    static func createButton(systemImageName: String, tintColor: UIColor = .black) -> UIButton {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: systemImageName), for: .normal)
-        button.tintColor = tintColor
-        return button
-    }
-    
-    static func createSearchBar(placeholder: String, backgroundColor: UIColor = .systemGray6) -> UISearchBar {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = placeholder
-        searchBar.backgroundImage = UIImage()
-        searchBar.searchTextField.backgroundColor = backgroundColor
-        return searchBar
-    }
-    
-    static func createSegmentedControl(items: [String]) -> UISegmentedControl {
-        let segmentedControl = UISegmentedControl(items: items)
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.gray, .font: UIFont.systemFont(ofSize: 14)], for: .normal)
-        segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.black, .font: UIFont.boldSystemFont(ofSize: 14)], for: .selected)
-        return segmentedControl
-    }
-}
-
-// 데이터 로직을 관리하는 클래스 (OCP 적용)
-class JustDroppedDataManager {
-    func fetchJustDroppedItems() -> [JustDroppedItem] {
-        return [
-            JustDroppedItem(imageName: "dropImage1", title: "MLB", description: "청키라이너 뉴욕양키스", price: "139,000원", purchaseInfo: "즉시 구매가"),
-            JustDroppedItem(imageName: "dropImage2", title: "Jordan", description: "Jordan 1 Retro High OG Yellow Ochre", price: "228,000원", purchaseInfo: "즉시 구매가"),
-            JustDroppedItem(imageName: "dropImage3", title: "Human Made", description: "Human Made Varsity Jacket", price: "2,000,000원", purchaseInfo: "즉시 구매가")
-        ]
-    }
-}
-
-// SOLID 원칙을 고려하여 리팩토링된 MainViewController
-class MainViewController: UIViewController {
-    
-    private let scrollView = UIScrollView()
-    private let contentView = UIView()
-    private let searchBar = UIHelper.createSearchBar(placeholder: "브랜드, 상품, 프로필, 태그 등")
-    private let bellButton = UIHelper.createButton(systemImageName: "bell")
-    private let segmentedControl = UIHelper.createSegmentedControl(items: ["추천", "랭킹", "발매정보", "럭셔리", "남성", "여성"])
-    private let underlineView = UIView()
-    private let bannerImageView = UIImageView(image: UIImage(named: "banner_image"))
-    private let collectionView: UICollectionView
-    private let justDroppedCollectionView: UICollectionView
-    private let dataManager = JustDroppedDataManager() // 의존성 역전 원칙 적용
-    
-    private let menuItems = [
-
 class MainViewController: UIViewController {
     
     // 스크롤 뷰 추가
     let scrollView = UIScrollView()
     let contentView = UIView() // 스크롤 뷰 안에 들어갈 콘텐츠 뷰
     
-    // 검색창 추가
-    let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "브랜드, 상품, 프로필, 태그 등"
-        searchBar.backgroundImage = UIImage()
-        searchBar.searchTextField.backgroundColor = .systemGray6
-        return searchBar
+    let searchBar: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray6
+        view.layer.cornerRadius = 10
+        let label = UILabel()
+        label.text = "브랜드, 상품, 프로필, 태그 등"
+        label.textColor = .gray
+        label.font = UIFont.systemFont(ofSize: 14)
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(8)
+        }
+        return view
     }()
+
     
     // 알림 버튼 추가
     let bellButton: UIButton = {
@@ -82,7 +37,8 @@ class MainViewController: UIViewController {
     let bannerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "banner_image")
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill // 이미지가 꽉 차도록 설정
+        imageView.clipsToBounds = true // 이미지가 영역을 넘어가지 않도록 설정
         return imageView
     }()
     // SegmentedControl 추가
@@ -98,12 +54,8 @@ class MainViewController: UIViewController {
         segmentedControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
         return segmentedControl
     }()
-    // 밑줄 뷰 추가
-    let underlineView = UIHelpers.createSeparatorLine(color: .black, height: 2)
-    
     // 메뉴 아이템 데이터 배열
     let menuItems = [
-
         (image: "collection1", title: "크림 드로우"),
         (image: "collection2", title: "실시간 차트"),
         (image: "collection3", title: "남성 추천"),
@@ -116,51 +68,63 @@ class MainViewController: UIViewController {
         (image: "collection10", title: "아크네 선물")
     ]
     
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .white
-        
-        let justDroppedLayout = UICollectionViewFlowLayout()
-        justDroppedLayout.scrollDirection = .horizontal
-        justDroppedCollectionView = UICollectionView(frame: .zero, collectionViewLayout: justDroppedLayout)
-        justDroppedCollectionView.backgroundColor = .white
-        
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
+    // 뭐 챌린지 ..
+    let underlineView = UIHelpers.createSeparatorLine(color: .black, height: 2)
+    let mainLabel = UIHelpers.createLabel(text: "본격 한파 대비! 연말 필수템 모음", font: .boldSystemFont(ofSize: 16), textColor: .black)
+    let hashtagLabel = UIHelpers.createLabel(text: "#해피홀리록챌린지", font: .systemFont(ofSize: 14), textColor: .gray)
+    let challengeItems: [String] = ["challengeImage1", "challengeImage2", "challengeImage3" ]
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-        setupLayout()
-        setupCollectionView()
-    }
-    
-    private func setupView() {
-        view.backgroundColor = .white
-
     // Just Dropped 데이터 배열
     let justDroppedItems: [JustDroppedItem] = [
-        JustDroppedItem(imageName: "dropImage1", title: "MLB", description: "청키라이너 뉴욕양키스", price: "139,000원", purchaseInfo: "즉시 구매가"),
-        JustDroppedItem(imageName: "dropImage2", title: "Jordan", description: "Jordan 1 Retro High OG Yellow Ochre", price: "228,000원", purchaseInfo: "즉시 구매가"),
-        JustDroppedItem(imageName: "dropImage3", title: "Human Made", description: "Human Made Varsity Jacket", price: "2,000,000원", purchaseInfo: "즉시 구매가")
+        JustDroppedItem(
+            imageUrl: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/v6vr4e25eoq1ncjxqcjq/NIKE+P-6000.png",
+            title: "Nike",
+            description: "Black shoes",
+            price: "139,000원",
+            purchaseInfo: "즉시 구매가"
+        ),
+        JustDroppedItem(
+            imageUrl: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/mcdrf7uxgwnem8l0sv0q/NIKE+P-6000.png",
+            title: "Nike",
+            description: "sliver shoes",
+            price: "228,000원",
+            purchaseInfo: "즉시 구매가"
+        ),
+        JustDroppedItem(
+            imageUrl: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5a96e95f-90a8-4215-9692-c93eb3fe0e37/WMNS+AIR+FORCE+1+%2707.png",
+            title: "Nike",
+            description: "brown shoes",
+            price: "2,000,000원",
+            purchaseInfo: "즉시 구매가"
+        ),
+        JustDroppedItem(
+            imageUrl: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/32b0f17a-38ba-40fa-9de7-31c5bb1661e3/AIR+JORDAN+1+LOW.png",
+            title: "Nike",
+            description: "red and black shoes",
+            price: "2,000,000원",
+            purchaseInfo: "즉시 구매가"
+        ),
+        JustDroppedItem(
+            imageUrl: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b4d8abd2-187c-438d-bf06-522813827ebc/NIKE+DYNAMO+2+EASYON+LIL+%28PS%29.png",
+            title: "Nike",
+            description: "baby shoes",
+            price: "2,000,000원",
+            purchaseInfo: "즉시 구매가"
+        )
+       
     ]
-    
+
+
     // 컬렉션 뷰 초기화
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 9
-        layout.minimumInteritemSpacing = 9
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        layout.minimumLineSpacing = 16
+        layout.minimumInteritemSpacing = 8
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
+        collectionView.isScrollEnabled = false // 스크롤 비활성화
         return collectionView
     }()
     
@@ -179,144 +143,166 @@ class MainViewController: UIViewController {
         collectionView.backgroundColor = .white
         return collectionView
     }()
+    //밑에 구분선 하나 더 추가
+    let newSeparatorLine = UIHelpers.createSeparatorLine()
+    
+    //챌린지어쩌고
+    let challengeCollectionView: UICollectionView = {
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            layout.minimumLineSpacing = 10
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            collectionView.backgroundColor = .white
+            return collectionView
+        }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
         // 검색창과 알림 버튼, 세그먼트 추가 (스크롤 뷰 바깥에 위치)
-
         view.addSubview(searchBar)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(searchBarTapped))
+            searchBar.addGestureRecognizer(tapGesture)
         view.addSubview(bellButton)
         view.addSubview(segmentedControl)
         view.addSubview(underlineView)
-
+        view.addSubview(challengeCollectionView)
+        // 스크롤 뷰와 콘텐츠 뷰 설정
         view.addSubview(scrollView)
-        
         scrollView.addSubview(contentView)
+        
+        // 네비게이션 타이틀 제거
+        navigationItem.title = nil
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        // UI 요소들 콘텐츠 뷰에 추가
         contentView.addSubview(bannerImageView)
         contentView.addSubview(collectionView)
+        contentView.addSubview(separatorLine)
+        contentView.addSubview(justDroppedTitleLabel)
+        contentView.addSubview(justDroppedSubtitleLabel)
         contentView.addSubview(justDroppedCollectionView)
+        contentView.addSubview(newSeparatorLine)
+        contentView.addSubview(mainLabel)
+        contentView.addSubview(hashtagLabel)
+        contentView.addSubview(challengeCollectionView)
+
+        
+        setupCollectionView()
+        setupLayout()
     }
     
-    private func setupLayout() {
-
+    
+    // 레이아웃 설정
+    func setupLayout() {
+        // 검색창 레이아웃
         searchBar.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalTo(bellButton.snp.leading).offset(-8)
-            make.height.equalTo(44)
+            make.height.equalTo(36)
         }
         
         bellButton.snp.makeConstraints { make in
             make.centerY.equalTo(searchBar)
             make.trailing.equalToSuperview().offset(-16)
-
-            make.size.equalTo(24)
-
             make.width.height.equalTo(24)
-
         }
         
         segmentedControl.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom).offset(16)
+            make.top.equalTo(searchBar.snp.bottom).offset(12)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(36)
+            make.height.equalTo(32)
         }
         
-
-        underlineView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(2)
-            make.leading.equalTo(segmentedControl.snp.leading)
-            make.width.equalTo(segmentedControl.frame.width / CGFloat(segmentedControl.numberOfSegments))
-            make.height.equalTo(2)
-        }
-        
-
-        // 밑줄 초기 위치 설정
         underlineView.snp.makeConstraints { make in
             make.top.equalTo(segmentedControl.snp.bottom).offset(2)
             make.height.equalTo(2)
-            make.width.equalTo(segmentedControl.frame.width / CGFloat(segmentedControl.numberOfSegments))
+            make.width.equalTo(UIScreen.main.bounds.width / CGFloat(segmentedControl.numberOfSegments))
             make.leading.equalTo(segmentedControl.snp.leading)
         }
         
-        // 스크롤 뷰 레이아웃
-
         scrollView.snp.makeConstraints { make in
             make.top.equalTo(underlineView.snp.bottom).offset(16)
             make.leading.trailing.bottom.equalToSuperview()
         }
-
-        // 콘텐츠 뷰 레이아웃
-
+        
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(scrollView)
             make.width.equalTo(scrollView)
+            make.bottom.equalTo(challengeCollectionView.snp.bottom).offset(16)
         }
         
-
-        // 배너 이미지 레이아웃
-
+        // 배너 이미지가 양옆으로 꽉 차게 설정
         bannerImageView.snp.makeConstraints { make in
             make.top.equalTo(contentView).offset(16)
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(336)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(374) // 배너 높이
         }
         
-
+        // 메뉴 아이템 컬렉션 뷰 레이아웃
+        let totalWidth = UIScreen.main.bounds.width - 32 // 좌우 여백 16씩 제거
+        let spacing: CGFloat = 8 // 셀 간 간격
+        let cellWidth = (totalWidth - spacing * 4) / 5
+        
         collectionView.snp.makeConstraints { make in
+               make.top.equalTo(bannerImageView.snp.bottom).offset(16)
+               make.leading.trailing.equalToSuperview()
+               make.height.equalTo((cellWidth + 20) * 2 + 16) // 두 줄의 높이 계산
+           }
 
-        // 컬렉션 뷰 레이아웃 (메뉴 아이템)
-        collectionView.snp.remakeConstraints { make in
-
-            make.top.equalTo(bannerImageView.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(200)
-        }
- 
         
-        justDroppedCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(200)
-            make.bottom.equalToSuperview().offset(-20)
-        }
-    }
-    
-    private func setupCollectionView() {
-
-
-        // 구분선과 텍스트 레이아웃
-        separatorLine.snp.remakeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(30)
+        separatorLine.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom).offset(24)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(1)
         }
-
-        justDroppedTitleLabel.snp.remakeConstraints { make in
-            make.top.equalTo(separatorLine.snp.bottom).offset(20)
+        
+        justDroppedTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(separatorLine.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
         }
-
-        justDroppedSubtitleLabel.snp.remakeConstraints { make in
+        
+        justDroppedSubtitleLabel.snp.makeConstraints { make in
             make.top.equalTo(justDroppedTitleLabel.snp.bottom).offset(4)
             make.leading.equalTo(justDroppedTitleLabel)
         }
-
-        // Just Dropped 컬렉션 뷰 레이아웃
-        justDroppedCollectionView.snp.remakeConstraints { make in
+        
+        justDroppedCollectionView.snp.makeConstraints { make in
             make.top.equalTo(justDroppedSubtitleLabel.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(250)
-            make.bottom.equalToSuperview().offset(-30)
+            make.height.equalTo(220) // Just Dropped 높이
         }
-
+        
+        newSeparatorLine.snp.makeConstraints { make in
+            make.top.equalTo(justDroppedCollectionView.snp.bottom).offset(24)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(1)
+        }
+        
+        mainLabel.snp.makeConstraints { make in
+            make.top.equalTo(newSeparatorLine.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+        }
+        
+        hashtagLabel.snp.makeConstraints { make in
+            make.top.equalTo(mainLabel.snp.bottom).offset(8)
+            make.leading.equalTo(mainLabel)
+        }
+        
+        challengeCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(hashtagLabel.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(120) // 챌린지 컬렉션 뷰 높이
+            make.bottom.equalToSuperview().offset(-16)
+        }
     }
-    
+
+
     // MARK: - UICollectionView 설정 메서드
     func setupCollectionView() {
-
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MainMenuCollectionViewCell.self, forCellWithReuseIdentifier: "MenuCell")
@@ -325,34 +311,16 @@ class MainViewController: UIViewController {
         justDroppedCollectionView.dataSource = self
         justDroppedCollectionView.register(JustDroppedCollectionViewCell.self, forCellWithReuseIdentifier: "JustDroppedCell")
     }
-
-}
-
-// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionView == self.collectionView ? menuItems.count : dataManager.fetchJustDroppedItems().count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.collectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCell", for: indexPath) as! MainMenuCollectionViewCell
-            let menuItem = menuItems[indexPath.item]
-            cell.configure(imageName: menuItem.image, title: menuItem.title)
-            return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "JustDroppedCell", for: indexPath) as! JustDroppedCollectionViewCell
-            let justDroppedItem = dataManager.fetchJustDroppedItems()[indexPath.item]
-            cell.configure(with: justDroppedItem)
-            return cell
+    func setupJustDroppedCollectionView() {
+            justDroppedCollectionView.delegate = self
+            justDroppedCollectionView.dataSource = self
+            justDroppedCollectionView.register(JustDroppedCollectionViewCell.self, forCellWithReuseIdentifier: "JustDroppedCell")
         }
+    func setupChallengeCollectionView() {
+        challengeCollectionView.delegate = self
+        challengeCollectionView.dataSource = self
+        challengeCollectionView.register(ChallengeCollectionViewCell.self, forCellWithReuseIdentifier: ChallengeCollectionViewCell.identifier)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return collectionView == justDroppedCollectionView ? CGSize(width: 150, height: 230) : CGSize(width: 61, height: 81)
-    }
-}
-
 
 
     // MARK: - 세그먼트 선택 변경 시 호출
@@ -422,6 +390,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 make.height.equalTo(200)
                 make.bottom.equalToSuperview().offset(-20)
             }
+            
         default:
             let label = UILabel()
             label.textAlignment = .center
@@ -431,36 +400,71 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }
     }
+    
+    // MARK: - SearchBar 클릭 시 호출
+    @objc func searchBarTapped() {
+        let searchBarTab = SearchBarTabViewController()
+        navigationController?.pushViewController(searchBarTab, animated: true)
     }
+}
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return collectionView == self.collectionView ? menuItems.count : justDroppedItems.count
-}
-
-func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    if collectionView == self.collectionView {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCell", for: indexPath) as! MainMenuCollectionViewCell
-        let menuItem = menuItems[indexPath.item]
-        cell.configure(imageName: menuItem.image, title: menuItem.title)
-        return cell
-    } else {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "JustDroppedCell", for: indexPath) as! JustDroppedCollectionViewCell
-        let justDroppedItem = justDroppedItems[indexPath.item]
-        cell.configure(with: justDroppedItem)
-        return cell
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == self.collectionView {
+            return menuItems.count
+        } else if collectionView == self.justDroppedCollectionView {
+            return justDroppedItems.count
+        } else if collectionView == self.challengeCollectionView {
+            return challengeItems.count
+        }
+        return 0
     }
-}
 
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == self.collectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCell", for: indexPath) as! MainMenuCollectionViewCell
+            let menuItem = menuItems[indexPath.item]
+            cell.configure(imageName: menuItem.image, title: menuItem.title)
+            return cell
+        } else if collectionView == self.justDroppedCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "JustDroppedCell", for: indexPath) as! JustDroppedCollectionViewCell
+            let justDroppedItem = justDroppedItems[indexPath.item]
+            cell.configure(with: justDroppedItem)
+            return cell
+        } else if collectionView == self.challengeCollectionView {
+            // 여기에서 셀을 설정합니다.
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChallengeCollectionViewCell.identifier, for: indexPath) as! ChallengeCollectionViewCell
+            let imageName = challengeItems[indexPath.item]
+            let title = "챌린지 \(indexPath.item + 1)" // 적절한 제목 설정
+            cell.configure(imageName: imageName, title: title) // 이미지와 제목 전달
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+
+    // 셀 크기 설정 메서드
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == self.justDroppedCollectionView {
-            return CGSize(width: 150, height: 230) 
+        if collectionView == self.collectionView {
+            // 한 줄에 5개씩 표시
+            let totalWidth = UIScreen.main.bounds.width - 32 // 좌우 여백 16씩 제거
+            let spacing: CGFloat = 8 // 셀 간 간격
+            let cellWidth = (totalWidth - spacing * 4) / 5 // 셀 5개, 간격 4개
+            return CGSize(width: cellWidth, height: cellWidth + 20) // 높이는 셀 너비에 추가 공간을 더함
+        } else if collectionView == self.justDroppedCollectionView {
+            return CGSize(width: 150, height: 230) // Just Dropped 컬렉션 뷰
+        } else if collectionView == self.challengeCollectionView {
+            // 챌린지 셀 크기 설정
+            let cellWidth: CGFloat = 124
+            let imageHeight: CGFloat = 165
+            let titleHeight: CGFloat = 16
+            let spacing: CGFloat = 8
+            let cellHeight = imageHeight + titleHeight + spacing // 이미지 높이 + 텍스트 높이 + 간격
+            return CGSize(width: cellWidth, height: cellHeight)
         }
         return CGSize(width: 61, height: 81)
     }
 
 }
-
-
