@@ -1,9 +1,11 @@
 import UIKit
 import SnapKit
+import Kingfisher
 
 class JustDroppedCollectionViewCell: UICollectionViewCell {
     
-
+    static let identifier = "JustDroppedCell" // 셀 식별자 추가
+    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -11,10 +13,7 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 10
         return imageView
     }()
-
     
-    
-       
     let bookmarkButton: UIButton = {
         var configuration = UIButton.Configuration.plain()
         configuration.image = UIImage(systemName: "bookmark")
@@ -36,8 +35,6 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
         return button
     }()
 
-    
-
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 12)
@@ -47,8 +44,9 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = .darkGray
+        label.numberOfLines = 2 // 최대 2줄로 설정
         return label
     }()
     
@@ -66,14 +64,10 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-   
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
-        bookmarkButton.addTarget(self, action: #selector(toggleBookmark), for: .touchUpInside)
     }
-
-
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -81,7 +75,6 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
     
     func setupLayout() {
         contentView.addSubview(imageView)
-
         contentView.addSubview(bookmarkButton)
         contentView.addSubview(titleLabel)
         contentView.addSubview(descriptionLabel)
@@ -90,34 +83,22 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
         
         imageView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
-
             make.height.equalTo(142)
         }
 
         bookmarkButton.snp.makeConstraints { make in
             make.bottom.equalTo(imageView.snp.bottom).offset(-8)
             make.trailing.equalTo(imageView.snp.trailing).offset(-8)
-            make.width.height.equalTo(24)
+            make.width.height.equalTo(20)
         }
-
 
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(4)
-  make.height.equalTo(142) // 이미지 높이를 142로 설정
-        }
-
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(4) // 이미지와의 간격을 줄임
-
             make.leading.trailing.equalToSuperview().inset(8)
         }
         
         descriptionLabel.snp.makeConstraints { make in
-
-
-
-            make.top.equalTo(titleLabel.snp.bottom).offset(2) // 타이틀과의 간격을 줄임
-
+            make.top.equalTo(titleLabel.snp.bottom).offset(2)
             make.leading.trailing.equalToSuperview().inset(8)
         }
         
@@ -132,23 +113,21 @@ class JustDroppedCollectionViewCell: UICollectionViewCell {
             make.bottom.equalToSuperview().offset(-8)
         }
     }
-
     
     @objc func bookmarkButtonTapped() {
-            bookmarkButton.isSelected.toggle()
-            let imageName = bookmarkButton.isSelected ? "bookmark.fill" : "bookmark"
-            let icon = UIImage(systemName: imageName)?.withTintColor(.black, renderingMode: .alwaysOriginal)
-            bookmarkButton.setImage(icon, for: .normal) // 아이콘 전체를 검은색으로 설정
-        }
-    
-    @objc func toggleBookmark() {
-           bookmarkButton.isSelected.toggle()
-       }
-   
-
+        bookmarkButton.isSelected.toggle()
+        let imageName = bookmarkButton.isSelected ? "bookmark.fill" : "bookmark"
+        let icon = UIImage(systemName: imageName)?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        bookmarkButton.setImage(icon, for: .normal)
+    }
     
     func configure(with item: JustDroppedItem) {
-        imageView.image = item.image
+        // Kingfisher를 사용해 URL로 이미지 로드
+        if let url = URL(string: item.imageUrl) {
+            imageView.kf.setImage(with: url)
+        } else {
+            imageView.image = nil // URL이 유효하지 않으면 기본 이미지 처리
+        }
         titleLabel.text = item.title
         descriptionLabel.text = item.description
         priceLabel.text = item.price

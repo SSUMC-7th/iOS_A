@@ -1,4 +1,3 @@
-
 import UIKit
 
 class SavedViewController: UIViewController {
@@ -72,5 +71,4 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource {
        
     }
 }
-
 

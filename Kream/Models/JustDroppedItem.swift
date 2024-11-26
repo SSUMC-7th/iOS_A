@@ -1,14 +1,10 @@
 import UIKit
 
 struct JustDroppedItem {
-    let imageName: String
+    let imageUrl: String // URL로 이미지 로드
     let title: String
     let description: String
     let price: String
     let purchaseInfo: String
-
-    var image: UIImage? {
-        return UIImage(named: imageName)
-    }
 }
 
